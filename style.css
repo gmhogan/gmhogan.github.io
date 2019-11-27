@@ -1,0 +1,295 @@
+/** Overall settings by Roshelle **/
+html {
+  box-sizing: border-box;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+body, html {
+	height: 100%;
+	margin: 0;
+  font-family: Lato, Helvetica, Arial, sans-serif;
+}
+
+/***** H and P by Roshelle *****/
+h1 {
+	display: block;
+	color:white;
+	font-size: 50px;
+  font-family: "Open Sans";
+	font-weight: normal;
+	padding-bottom: 35px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+h2 {
+	color:white;
+	display: block;
+	font-size: 25px;
+	font-weight: normal;
+	padding: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+h3 {
+	color: #1a4980;
+	display: block;
+	font-size: 30px;
+	font-weight: normal;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	margin-top: 0px;
+	margin-bottom: 5px;
+}
+
+p {
+	color: #333333;
+	display: block;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 0px;
+	margin: 0px;
+}
+
+
+/************ MOBILE NAV BAR *************>
+/* Mobile Nav CSS From W3Schools Owned by Michael Rose  */
+.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0);
+  /* Modified color and opacity */
+  background-color: rgba(1, 37, 71, 0.95);
+  overflow-y: hidden;
+  /* modified speed */
+  transition: 0.3s;
+  z-index: 1000001;
+  }
+  
+/* Modified content position */
+.overlay-content {
+  position: relative;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+/* Modified padding and font size and color */
+.overlay a {
+  padding: 5px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #57f6fc;
+  display: block;
+  transition: 0.3s;
+}
+  
+.overlay a:hover, .overlay a:focus {
+  color: #9affd5;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 10px;
+  right: 35px;
+  font-size: 60px;
+}
+
+#mobileNav{
+  width: 100%;
+  text-align: right;
+  padding-right: 25px;
+  position: Fixed;
+  background-color: #fff;
+  display: block;
+  z-index: 1000000; /* Mike Wagner added so that hamburger menu apears above header image*/
+}
+
+#hamburger{
+  margin-right: 30px;
+  font-size:50px;
+  cursor: pointer;
+}
+ul {
+  padding: 0px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+}
+/* End of Mobile Nav CSS */
+/* Media Query to switch nav bars */
+
+@media only screen and (min-width: 996px){
+  #mobileNav {display: none}
+  #desktopNav {
+    width: 100%;
+    padding-right: 25px;
+    position: Fixed;
+    background-color: #fff;
+    display: block;
+    z-index: 1000000;}
+}
+@media only screen and (max-width: 995px){
+  #mobileNav {display: block}
+  #desktopNav {display: none}
+}
+
+
+/********* DESKTOP NAV BAR design by Roshelle *************/
+.bg-light{
+  background-color: white!important;
+}
+
+.navbar-brand {
+  padding-left: 11%;
+  padding-right: 5%;
+  }
+  
+.logo{
+   width: 25%;
+  }
+
+.navbar-light .navbar-nav .nav-link {
+  color: #42474b; 
+}
+
+/*************** HEADER *************/
+/* Hero section and text for header owned by Michael Wagner, source from https://foundation.zurb.com/building-blocks/blocks/responsive-hero-section.html */
+/* Background image retrieved from Pawel Nolbert on Unsplash*/
+.hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url("../Photos/City.jpg");
+  background-color: #cccccc;
+  height: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-section-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size:50px;
+}
+.hero-section-text h1 {
+  font-size:60px;
+}
+
+
+/*Main Content Blocks CSS. By Alison Orlandi */
+.roweven, .rowodd {
+	color: #333333;
+	line-height: 1.4;
+}
+/* Modified from w3 Schools */
+.columnleft {
+  float: left;
+  width: 45%;
+  padding-left: 12%;
+  padding-right: 1%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+.columnright {
+  float: left;
+  width: 45%;
+  padding-right:1%;
+  padding-left: 5%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+/*End of modified w3 schools CSS*/
+.rowodd::after, .roweven::after{
+  content: "";
+  clear: both;
+  display: table;
+}
+.rowodd{
+  background-color: whitesmoke;
+}
+
+/* Shadow box modified from w3 schools */
+.sevenbyfive {
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Footer CSS modified from w3 schools */
+ .logofooter{
+	width: 20%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+ }
+
+/* Responsive design for main content owned by Alison Orlandi */
+@media screen and (max-width: 800px) {
+  .columnleft, .columnright {
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+    padding-bottom:5%;
+  }
+
+  .sevenbyfive{
+    width: 100%;
+  }
+  .logofooter{
+    width: 80%;
+  }
+
+}
+/* End of Main Content Blocks CSS*/
+
+/** FOOTER **/
+footer p, footer h3{
+  text-align: center;
+}
+
+/**team page**/
+
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
