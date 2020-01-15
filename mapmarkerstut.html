@@ -23,6 +23,16 @@ function initMap() {
       document.getElementById('map'), {zoom: 4, center: random});
   // The marker, positioned at Uluru
   var marker = new google.maps.Marker({position: random,Title:"Chicken", map: map});
+}  
+     marker.addListener('click', toggleBounce);
+}
+
+function toggleBounce() {
+  if (marker.getAnimation() !== null) {
+    marker.setAnimation(null);
+  } else {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+  }
 }
     </script>
     <script async defer
