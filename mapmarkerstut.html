@@ -24,16 +24,7 @@ function initMap() {
   // The marker, positioned at Uluru
   var marker = new google.maps.Marker({position: random,Title:"Chicken", map: map});
 }  
-     marker.addListener('click', toggleBounce);
-}
 
-function toggleBounce() {
-  if (marker.getAnimation() !== null) {
-    marker.setAnimation(null);
-  } else {
-    marker.setAnimation(google.maps.Animation.BOUNCE);
-  }
-}
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGuhuzjsq_tS-M67ArtS48nD9mhA05r_g&callback=initMap">
