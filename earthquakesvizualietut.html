@@ -22,8 +22,8 @@
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           zoom: 2,
-          center: {lat: -33.865427, lng: 151.196123},
-          mapTypeId: 'terrain'
+          center: {lat: 33.865427, lng: 151.196123},
+          mapTypeId: 'satellite'
         });
 
         // Create a <script> tag and set the USGS URL as the source.
@@ -45,7 +45,7 @@
       function getCircle(magnitude) {
         return {
           path: google.maps.SymbolPath.CIRCLE,
-          fillColor: 'red',
+          fillColor: 'black',
           fillOpacity: .2,
           scale: Math.pow(2, magnitude) / 2,
           strokeColor: 'white',
