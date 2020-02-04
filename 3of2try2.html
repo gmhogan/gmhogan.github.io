@@ -21,7 +21,8 @@
       "esri/views/MapView",
       "esri/widgets/BasemapToggle",
       "esri/widgets/BasemapGallery"
-    ], function(Map, MapView, BasemapToggle, BasemapGallery) {
+      "esri/views/ui/DefaultUI" 
+    ], function(Map, MapView, BasemapToggle, BasemapGallery, DefaultUI) {view.ui.add(basemapToggle, "bottom-right");
 
       var map = new Map({
         basemap: "topo-vector"
@@ -37,6 +38,7 @@
         view: view,
         nextBasemap: "satellite"
       });
+      
     });
   </script>
 </head>
