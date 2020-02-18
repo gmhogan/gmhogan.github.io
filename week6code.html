@@ -1,0 +1,57 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>ArcGIS JavaScript Tutorials: Draw graphics</title>
+  <style>
+    html, body, #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  
+  <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.13/"></script>
+  
+  <script>  
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/layers/GraphicsLayer",
+      "esri/widgets/Sketch"
+    ], function(Map, MapView, GraphicsLayer, Sketch) {
+
+      // Creat a temporary layer for graphics
+      var graphicsLayer = new GraphicsLayer();
+      
+      var map = new Map({
+        basemap: "topo-vector",
+        layers: [graphicsLayer]
+      });
+      
+      var view = new MapView({
+        container: "viewDiv",
+        map: map,
+        center: [-100,56],
+        zoom: 1
+      });
+      
+      // Sketch widget
+      var sketch = new Sketch({
+        view: view,
+        layer: graphicsLayer
+      });
+
+      // Add widget to the view
+      view.ui.add(sketch, "top-right");  
+      
+
+    });
+  </script>
+</head>
+<body>
+  <div id="viewDiv"></div>
+</body>
+</html>
