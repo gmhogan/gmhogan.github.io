@@ -12,14 +12,14 @@
 </style>
 </head>
 <body>
-<div id="map" class="mapboxgl-map"><div class="mapboxgl-canary" style="visibility: hidden;"></div><div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate"><canvas class="mapboxgl-canvas" style="position: absolute; width: 1920px; height: 196px;" tabindex="0" aria-label="Map" width="1920" height="196"></canvas></div><div class="mapboxgl-control-container"><div class="mapboxgl-ctrl-top-left"></div><div class="mapboxgl-ctrl-top-right"></div><div class="mapboxgl-ctrl-bottom-left"><div class="mapboxgl-ctrl" style="display: block;"><a class="mapboxgl-ctrl-logo" target="_blank" rel="noopener nofollow" href="https://www.mapbox.com/" aria-label="Mapbox logo"></a></div></div><div class="mapboxgl-ctrl-bottom-right"><div class="mapboxgl-ctrl mapboxgl-ctrl-attrib"><div class="mapboxgl-ctrl-attrib-inner"><a href="https://www.mapbox.com/about/maps/" target="_blank">© Mapbox</a> <a href="http://www.openstreetmap.org/about/" target="_blank">© OpenStreetMap</a> <a class="mapbox-improve-map" href="https://apps.mapbox.com/feedback/?owner=mapbox&amp;id=light-v10&amp;access_token=pk.eyJ1Ijoic2hhd25tZmxlbWluZ2MiLCJhIjoiY2p2cW54OWd6MHBsNTQzbW82eGdoMnhiayJ9.J0aHRw_EPtUzVsp0aEIS1g" target="_blank" rel="noopener nofollow">Improve this map</a></div></div></div></div></div>
+<div id="map" class="mapboxgl-map"><div class="mapboxgl-canary" style="visibility: hidden;"></div><div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate"><canvas class="mapboxgl-canvas" style="position: absolute; width: 1888px; height: 190px;" tabindex="0" aria-label="Map" width="1888" height="190"></canvas></div><div class="mapboxgl-control-container"><div class="mapboxgl-ctrl-top-left"></div><div class="mapboxgl-ctrl-top-right"></div><div class="mapboxgl-ctrl-bottom-left"><div class="mapboxgl-ctrl" style="display: block;"><a class="mapboxgl-ctrl-logo" target="_blank" rel="noopener nofollow" href="https://www.mapbox.com/" aria-label="Mapbox logo"></a></div></div><div class="mapboxgl-ctrl-bottom-right"><div class="mapboxgl-ctrl mapboxgl-ctrl-attrib"><div class="mapboxgl-ctrl-attrib-inner"><a href="https://www.mapbox.com/about/maps/" target="_blank">© Mapbox</a> <a href="http://www.openstreetmap.org/about/" target="_blank">© OpenStreetMap</a> <a class="mapbox-improve-map" href="https://apps.mapbox.com/feedback/?owner=mapbox&amp;id=light-v10&amp;access_token=pk.eyJ1Ijoic2hhd25tZmxlbWluZ2MiLCJhIjoiY2p2cW54OWd6MHBsNTQzbW82eGdoMnhiayJ9.J0aHRw_EPtUzVsp0aEIS1g" target="_blank" rel="noopener nofollow">Improve this map</a></div></div></div></div></div>
 <script>
 	// Modified example from this source: https://docs.mapbox.com/mapbox-gl-js/example/wms/
 	// Be sure to insert your OWN mapbox token.
-	mapboxgl.accessToken = 'pk.eyJ1IjoiZ2hvZ2FuIiwiYSI6ImNrN3VweXl3ZjAycXEzbXJ5bHh2NTNoOWkifQ.CWE66eUw97Kybq9Z4kO9kw';
+	mapboxgl.accessToken = 'pk.eyJ1Ijoic2hhd25tZmxlbWluZ2MiLCJhIjoiY2p2cW54OWd6MHBsNTQzbW82eGdoMnhiayJ9.J0aHRw_EPtUzVsp0aEIS1g';
     var map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/ghogan/ck7nj512415cb1ilh8cnmq6zq',
+        style: 'mapbox://styles/mapbox/light-v10',
         zoom: 3,
         center: [-100.0, 50.0]
     });
@@ -28,16 +28,16 @@
         map.addSource('wms-test-source', {
             'type': 'raster',
             'tiles': [
-               'https://luna.flemingcollege.ca/arcgis/rest/services/Geom99/ghogancanadapro/MapServer/export?bbox={bbox-epsg-3857
+                'https://luna.flemingcollege.ca/arcgis/rest/services/Geom99/ghogancanadapro/MapServer/export?bbox={bbox-epsg-3857}&bboxSR=EPSG%3A3857&layers=0&layerDefs=&size=256%2c256&imageSR=&format=png&transparent=true&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&f=image'
             ],
             'tileSize': 256
         });
         map.addLayer(
             {
                 'id': 'Canada',
-                'type': 'Feature Layer',
-                
-                'paint': {#228B22}
+                'type': 'raster',
+                'source': 'wms-test-source',
+                'paint': {}
             },
             'aeroway-line'
         );
@@ -47,4 +47,5 @@
 
 
 </body>
+
 </html>
