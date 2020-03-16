@@ -28,10 +28,10 @@
     var url = 'https://luna.flemingcollege.ca/arcgis/rest/services/Geom99/ghogancanadapro/MapServer/0/query?where=PRNAME%3D%27Alberta%27&returnGeometry=true&returnTrueCurves=false&returnExtentOnly=false&f=geojson';
     map.on('load', function() {
         window.setInterval(function() {
-            map.getSource('canada').setData(url);
+            map.getSource('Canada').setData(url);
         }, 2000);
 
-        map.addSource('canada', { type: 'geojson', data: url });
+        map.addSource('Canada', { type: 'geojson', data: url });
         map.addLayer({
             'id': 'canada',
             'type': 'fill',
