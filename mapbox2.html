@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Add GeoJSON from ArcGIS Server</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<script src="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" rel="stylesheet">
+<style>
+	body { margin: 0; padding: 0; }
+	#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<div id="map" class="mapboxgl-map"><div class="mapboxgl-canary" style="visibility: hidden;"></div><div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate"><canvas class="mapboxgl-canvas" style="position: absolute; width: 1888px; height: 190px;" tabindex="0" aria-label="Map" width="1888" height="190"></canvas></div><div class="mapboxgl-control-container"><div class="mapboxgl-ctrl-top-left"></div><div class="mapboxgl-ctrl-top-right"></div><div class="mapboxgl-ctrl-bottom-left"><div class="mapboxgl-ctrl" style="display: block;"><a class="mapboxgl-ctrl-logo" target="_blank" rel="noopener nofollow" href="https://www.mapbox.com/" aria-label="Mapbox logo"></a></div></div><div class="mapboxgl-ctrl-bottom-right"><div class="mapboxgl-ctrl mapboxgl-ctrl-attrib"><div class="mapboxgl-ctrl-attrib-inner"><a href="https://www.mapbox.com/about/maps/" target="_blank">© Mapbox</a> <a href="http://www.openstreetmap.org/about/" target="_blank">© OpenStreetMap</a> <a class="mapbox-improve-map" href="https://apps.mapbox.com/feedback/?owner=mapbox&amp;id=streets-v11&amp;access_token=pk.eyJ1Ijoic2hhd25tZmxlbWluZ2MiLCJhIjoiY2p2cW54OWd6MHBsNTQzbW82eGdoMnhiayJ9.J0aHRw_EPtUzVsp0aEIS1g" target="_blank" rel="noopener nofollow">Improve this map</a></div></div></div></div></div>
+
+<script>
+	// Modified from: https://docs.mapbox.com/mapbox-gl-js/example/live-geojson/
+	// Make sure you use your own Access Token
+	mapboxgl.accessToken = 'pk.eyJ1IjoiZ2hvZ2FuIiwiYSI6ImNrN3VweXl3ZjAycXEzbXJ5bHh2NTNoOWkifQ.CWE66eUw97Kybq9Z4kO9kw';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/ghogan/ck7nj512415cb1ilh8cnmq6zq',
+        zoom: 3,
+        center: [-100.0, 50.0]
+    });
+    // Modify this to place your own map service URL here. Show one or more provinces--do not just show Ontario like this example. 
+    var url = 'https://luna.flemingcollege.ca/arcgis/rest/services/Geom99/ghogancanadapro/MapServer/0/query?where=PRNAME%3D%27Alberta%27&returnGeometry=true&returnTrueCurves=false&returnExtentOnly=false&f=geojson';
+    map.on('load', function() {
+        window.setInterval(function() {
+            map.getSource('canada').setData(url);
+        }, 2000);
+
+        map.addSource('canada', { type: 'geojson', data: url });
+        map.addLayer({
+            'id': 'canada',
+            'type': 'fill',
+            'source': 'canada',
+            'layout': {},
+            'paint': {'fill-color': '#088','fill-opacity': 0.8}
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
