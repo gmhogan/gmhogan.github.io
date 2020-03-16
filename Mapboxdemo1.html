@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>mapboxdemo1</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<script src="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" rel="stylesheet">
+<style>
+	body { margin: 0; padding: 0; }
+	#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<div id="map" class="mapboxgl-map"><div class="mapboxgl-canary" style="visibility: hidden;"></div><div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate"><canvas class="mapboxgl-canvas" style="position: absolute; width: 1920px; height: 196px;" tabindex="0" aria-label="Map" width="1920" height="196"></canvas></div><div class="mapboxgl-control-container"><div class="mapboxgl-ctrl-top-left"></div><div class="mapboxgl-ctrl-top-right"></div><div class="mapboxgl-ctrl-bottom-left"><div class="mapboxgl-ctrl" style="display: block;"><a class="mapboxgl-ctrl-logo" target="_blank" rel="noopener nofollow" href="https://www.mapbox.com/" aria-label="Mapbox logo"></a></div></div><div class="mapboxgl-ctrl-bottom-right"><div class="mapboxgl-ctrl mapboxgl-ctrl-attrib"><div class="mapboxgl-ctrl-attrib-inner"><a href="https://www.mapbox.com/about/maps/" target="_blank">© Mapbox</a> <a href="http://www.openstreetmap.org/about/" target="_blank">© OpenStreetMap</a> <a class="mapbox-improve-map" href="https://apps.mapbox.com/feedback/?owner=mapbox&amp;id=light-v10&amp;access_token=pk.eyJ1Ijoic2hhd25tZmxlbWluZ2MiLCJhIjoiY2p2cW54OWd6MHBsNTQzbW82eGdoMnhiayJ9.J0aHRw_EPtUzVsp0aEIS1g" target="_blank" rel="noopener nofollow">Improve this map</a></div></div></div></div></div>
+<script>
+	// Modified example from this source: https://docs.mapbox.com/mapbox-gl-js/example/wms/
+	// Be sure to insert your OWN mapbox token.
+	mapboxgl.accessToken = 'pk.eyJ1IjoiZ2hvZ2FuIiwiYSI6ImNrN3VweXl3ZjAycXEzbXJ5bHh2NTNoOWkifQ.CWE66eUw97Kybq9Z4kO9kw';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/ghogan/ck7nj512415cb1ilh8cnmq6zq',
+        zoom: 3,
+        center: [-100.0, 50.0]
+    });
+
+    map.on('load', function() {
+        map.addSource('wms-test-source', {
+            'type': 'raster',
+            'tiles': [
+               'https://luna.flemingcollege.ca/arcgis/rest/services/Geom99/ghogancanadapro/MapServer/export?bbox=1879370.5071317814,-876218.148434883,1.0825805135668214E7,6777645.945534883'
+            ],
+            'tileSize': 256
+        });
+        map.addLayer(
+            {
+                'id': 'wms-test-layer',
+                'type': 'raster',
+                'source': 'wms-test-source',
+                'paint': {}
+            },
+            'aeroway-line'
+        );
+    });
+</script>
+
+
+
+</body>
+</html>
